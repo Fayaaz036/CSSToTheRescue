@@ -1,0 +1,42 @@
+:root {
+    --main-wit: #f0f0f0;
+    --main-rood: #cd0a2b;
+    --main-blauw: #0a92cd;
+    --main-grijs: #303841;
+    --main-groen: #0bca07;
+
+}
+
+/*De verschillende rijmodus hier declare ik de vaste stijl die elk element moet krijgen voor de modus.*/
+input[type="radio"]::before {
+    display:none;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    border: 0.5em solid;
+    text-align:center;
+    line-height:2em;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color:var(--main-wit);
+}
+input[type="radio"]:first-of-type:checked::before {
+    display:block;
+    border-color: var(--main-rood);
+    background: linear-gradient(180deg, rgb(205, 10, 43) 0%, rgb(0, 0, 0) 100%);
+    content: "S";
+}
+input[type="radio"]:nth-of-type(2):checked::before {
+    display:block;
+    border-color: var(--main-blauw);
+    background: linear-gradient(180deg, rgb(10, 146.5, 205) 0%, rgb(0, 0, 0) 100%);
+    content: "C";
+}
+
+input[type="radio"]:nth-of-type(3):checked::before {
+    display:block;
+    border-color: var(--main-groen);
+    background: linear-gradient(180deg, rgb(14, 190, 10) 0%, rgb(0, 0, 0) 100%);
+    content: "E";
+}
