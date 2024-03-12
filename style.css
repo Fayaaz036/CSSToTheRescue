@@ -4,19 +4,40 @@
     --main-blauw: #0a92cd;
     --main-grijs: #303841;
     --main-groen: #0bca07;
+    --main-speedometer:#101417;
+    --main-speedometerborder:#354D63;
+    --main-bg-color: #0B1522;
+    --main-font: "Exo", sans-serif;
+
 
 }
-
+.i4ewOd-pzNkMb-haAclf {
+    display: none!important;
+}
+main {
+    display:flex;
+    background-color: var(--main-bg-color);
+    font-family:var(--main-font);
+}
 /*De verschillende rijmodus hier declare ik de vaste stijl die elk element moet krijgen voor de modus.*/
 input[type="radio"] {
     /*Hier haal ik de bolletjes weg om alleen de text zichtbaar te maken.*/
     appearance: none;
 }
-label:checked{
+
+div:nth-of-type(2) > form {
+    position: relative;
+    top: 12em;
+    width:15em;
+    font-size: 1.5em;
+    /*display: flex;*/
+    left:4em;
+    color: var(--main-wit);
+}
+div:nth-of-type(2) >form > label:checked{
     border-bottom: 1em dotted black;
 }
-input[type="radio"]:before {
-    display:block;
+div:nth-of-type(2) >form > input[type="radio"]:before {
     width: 2em;
     height: 2em;
     border-radius: 0.5em;
@@ -28,26 +49,26 @@ input[type="radio"]:before {
     font-style: italic;
     color:var(--main-wit);
 }
-input[type="radio"]:first-of-type:checked:before {
+div:nth-of-type(2) > form > input[type="radio"]:first-of-type:checked:before {
     display:block;
     border-color: var(--main-rood);
     background: linear-gradient(180deg, rgb(205, 10, 43) 0%, rgb(0, 0, 0) 100%);
     content: "S";
 }
-input[type="radio"]:nth-of-type(2):checked:before {
+div:nth-of-type(2) >form > input[type="radio"]:nth-of-type(2):checked:before {
     display:block;
     border-color: var(--main-blauw);
     background: linear-gradient(180deg, rgb(10, 146.5, 205) 0%, rgb(0, 0, 0) 100%);
     content: "C";
 }
 
-input[type="radio"]:nth-of-type(3):checked:before {
+div:nth-of-type(2) > form >input[type="radio"]:nth-of-type(3):checked:before {
     display:block;
     border-color: var(--main-groen);
     background: linear-gradient(180deg, rgb(14, 190, 10) 0%, rgb(0, 0, 0) 100%);
     content: "E";
 }
-body {
+main> body {
     display: flex;
 }
 
@@ -58,10 +79,110 @@ label:visited {
     color:black;
 }
 
-label:hover, label:focus-visible{
+main>div:nth-of-type(2) >form >label:hover, label:focus-visible{
     color:red;
     text-decoration:underline blue 0.1em;
 }
 /* input:has(label):clicked {
 color:blue;
 } */
+
+main>div:nth-of-type(3){
+    width:35em;
+    height:35em;
+    background:var(--main-speedometer);
+    border: var(--main-speedometerborder) solid 0.5em;
+    border-radius: 50%;
+    margin: 3em;
+}
+main>div:nth-of-type(3) >  form  {
+    width:35em;
+    height:35em;
+    display: grid;
+    grid-template-areas:
+            "a b c d"
+            "e h h i"
+            "j h h k";
+}
+/*nul*/
+main>div:nth-of-type(3) >  form > fieldset:first-of-type {
+    grid-area:j;
+    position: relative;
+    left: 1em;
+    top:-1em;
+
+}
+/*duizend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(2) {
+    grid-area:e;
+    position: relative;
+    top:4em;
+}
+/*tweeduizend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(3) {
+    grid-area:a;
+    position: relative;
+    /*transform: rotate(35deg);*/
+    top:7em;
+    left:3em;
+}
+/*drieduizend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(4) {
+    grid-area:b;
+    position: relative;
+    left: 3em;
+    top:3em;
+}
+/*vierduizend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(5) {
+    grid-area:c;
+    position: relative;
+    left: 3em;
+    top:3em;
+}
+/*vijfduidzend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(6) {
+    grid-area:d;
+    position: relative;
+    left: -2em;
+    top:7em;
+}
+/*zesduizend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(7) {
+    grid-area:i;
+    position: relative;
+    top:4em;
+}
+/*zevenduizend*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(8) {
+    grid-area:k;
+    position: relative;
+    left: -1em;
+    top:-1em;
+}
+/*kmteller*/
+main>div:nth-of-type(3) >  form > fieldset:nth-of-type(9) {
+    grid-area:h;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+main>div:nth-of-type(3) >  form > fieldset > label {
+font-size: 3em!important;
+    color:white;
+}
+main>div:nth-of-type(3) >  form > fieldset:last-child  {
+font-size:3em;
+}
+main>div:nth-of-type(3) > form    {
+    /*border-top:var(--main-wit) solid 0.5em;*/
+    /*border-radius: 50%;*/
+}
+fieldset{
+    border:none;
+}
+/*maps iframe custom propertys*/
+iframe {
+    position:relative;
+    top:9em;
+}

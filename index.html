@@ -8,13 +8,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-/*<!--  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">-->*/
+<!--  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">-->
 </head>
 
 <body>
+<main>
+
 
 <div>
   <!--  Hier komt de tijd parkeer rem en tijd-->
@@ -23,9 +24,9 @@
   <!--  Dit zijn de rijmodus-->
   <form>
     <input type="radio" id="sport" name="rijmodus" value="sport">
-    <label for="sport">Sport</label>
+    <label for="sport">Sport</label><br>
     <input type="radio" id="comfort" name="rijmodus" value="comfort">
-    <label for="comfort">Comfort</label>
+    <label for="comfort">Comfort</label><br>
     <input type="radio" id="eco" name="rijmodus" value="eco">
     <label for="eco">Eco</label>
   </form>
@@ -33,20 +34,48 @@
 
 <div>
   <!--  Dit is de toerenteller-->
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-  </ul>
-
+  <form>
+    <fieldset>
+      <input type="radio" id="nul" name="toeren" value="nul">
+      <label for="nul">0</label>
+    </fieldset>
+    <fieldset>
+      <input type="radio" id="duizend" name="toeren" value="duizend">
+      <label for="duizend">1</label>
+    </fieldset>
+    <fieldset>
+      <input type="radio" id="tweeduizend" name="toeren" value="tweeduizend">
+       <label for="tweeduizend">2</label>
+    </fieldset>
+    <fieldset>
+      <input type="radio" id="drieduizend" name="toeren" value="drieduizend">
+       <label for="drieduizend">3</label>
+    </fieldset>
+    <fieldset>
+       <input type="radio" id="vierduizend" name="toeren" value="vierduizend">
+       <label for="vierduizend">4</label></fieldset>
+    <fieldset>
+      <input type="radio" id="vijfduizend" name="toeren" value="vijfduizend">
+      <label for="vijfduizend">5</label>
+    </fieldset>
+    <fieldset>
+      <input type="radio" id="zesduizend" name="toeren" value="zesduizend">
+      <label for="zesduizend">6</label>
+    </fieldset>
+    <fieldset>
+       <input type="radio" id="zevenduizend" name="toeren" value="zevenduizend">
+       <label for="zevenduizend">7</label>
+    </fieldset>
+    <fieldset>
+      <label>100</label>
+    </fieldset>
+  </form>
 </div>
 
 <div>
   <!--    hier komt de maps en versnellingsbak-->
-
+  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ikDymsNK503wBw-qQyOdlKG23ScnWSY&ehbc=2E312F&noprof=1"
+          width="500" height="400" style="style.css"></iframe>
 </div>
 
 
@@ -86,5 +115,7 @@
 <!--</label>-->
 
 <script defer src="script.js"></script>
+</main>
+
 </body>
 </html>
