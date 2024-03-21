@@ -8,181 +8,306 @@
     --main-speedometerborder:#354D63;
     --main-bg-color: #0B1522;
     --main-font: "Exo", sans-serif;
-
-
+    ::-webkit-scrollbar {
+        display:none;
+        }
+    label {
+        cursor: pointer; /* Maak de label klikbaar */
+    }
 }
-.i4ewOd-pzNkMb-haAclf {
-    display: none!important;
-}
+
 main {
     display:flex;
     background-color: var(--main-bg-color);
     font-family:var(--main-font);
+    width: 100%;
+
 }
+
 /*De verschillende rijmodus hier declare ik de vaste stijl die elk element moet krijgen voor de modus.*/
 input[type="radio"] {
     /*Hier haal ik de bolletjes weg om alleen de text zichtbaar te maken.*/
     appearance: none;
 }
 
+
 div:nth-of-type(2) > form {
     position: relative;
     top: 12em;
     width:15em;
     font-size: 1.5em;
-    /*display: flex;*/
     left:4em;
     color: var(--main-wit);
 }
-div:nth-of-type(2) >form > label:checked{
-    border-bottom: 1em dotted black;
-}
-div:nth-of-type(2) >form > input[type="radio"]:before {
+
+input:after {
     width: 2em;
     height: 2em;
     border-radius: 0.5em;
     border: 0.4em solid;
-    text-align:center;
-    line-height:2em;
+    text-align: center;
+    line-height: 2em;
     font-family: "Inter-BoldItalic", Helvetica, sans-serif;
     font-weight: 700;
     font-style: italic;
-    color:var(--main-wit);
+    color: var(--main-wit);
 }
-div:nth-of-type(2) > form > input[type="radio"]:first-of-type:checked:before {
-    display:block;
-    border-color: var(--main-rood);
-    background: linear-gradient(180deg, rgb(205, 10, 43) 0%, rgb(0, 0, 0) 100%);
-    content: "S";
-}
-div:nth-of-type(2) >form > input[type="radio"]:nth-of-type(2):checked:before {
+    /*focus state rijmodus*/
+input[value="sport"]:hover:after,
+input[value="sport"]:checked:after {
+         display: block;
+         border-color: var(--main-rood);
+         background: linear-gradient(180deg, rgb(205, 10, 43) 0%, rgb(0, 0, 0) 100%);
+         content: "S";
+     }
+
+input[value="comfort"]:hover:after,
+input[value="comfort"]:checked:after{
     display:block;
     border-color: var(--main-blauw);
     background: linear-gradient(180deg, rgb(10, 146.5, 205) 0%, rgb(0, 0, 0) 100%);
     content: "C";
 }
 
-div:nth-of-type(2) > form >input[type="radio"]:nth-of-type(3):checked:before {
+input[value="eco"]:checked:after,
+input[value="eco"]:hover:after{
     display:block;
     border-color: var(--main-groen);
     background: linear-gradient(180deg, rgb(14, 190, 10) 0%, rgb(0, 0, 0) 100%);
     content: "E";
-}
-main> body {
-    display: flex;
-}
-
-label:hover, label:focus-visible {
 
 }
-label:visited {
-    color:black;
-}
+
+
+
+
 
 main>div:nth-of-type(2) >form >label:hover, label:focus-visible{
-    color:red;
-    text-decoration:underline blue 0.1em;
-}
-/* input:has(label):clicked {
-color:blue;
-} */
+    /*color:red;*/
+    text-decoration:underline white 0.2em;
 
-main>div:nth-of-type(3){
+}
+
+div:nth-of-type(3) >  form {
     width:35em;
     height:35em;
     background:var(--main-speedometer);
     border: var(--main-speedometerborder) solid 0.5em;
     border-radius: 50%;
     margin: 3em;
-}
-main>div:nth-of-type(3) >  form  {
-    width:35em;
-    height:35em;
     display: grid;
     grid-template-areas:
-            "a b c d"
-            "e h h i"
-            "j h h k";
-}
-/*nul*/
-main>div:nth-of-type(3) >  form > fieldset:first-of-type {
-    grid-area:j;
-    position: relative;
-    left: 1em;
-    top:-1em;
-
-}
-/*duizend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(2) {
-    grid-area:e;
-    position: relative;
-    top:4em;
-}
-/*tweeduizend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(3) {
-    grid-area:a;
-    position: relative;
-    /*transform: rotate(35deg);*/
-    top:7em;
-    left:3em;
-}
-/*drieduizend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(4) {
-    grid-area:b;
-    position: relative;
-    left: 3em;
-    top:3em;
-}
-/*vierduizend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(5) {
-    grid-area:c;
-    position: relative;
-    left: 3em;
-    top:3em;
-}
-/*vijfduidzend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(6) {
-    grid-area:d;
-    position: relative;
-    left: -2em;
-    top:7em;
-}
-/*zesduizend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(7) {
-    grid-area:i;
-    position: relative;
-    top:4em;
-}
-/*zevenduizend*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(8) {
-    grid-area:k;
-    position: relative;
-    left: -1em;
-    top:-1em;
-}
-/*kmteller*/
-main>div:nth-of-type(3) >  form > fieldset:nth-of-type(9) {
-    grid-area:h;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-main>div:nth-of-type(3) >  form > fieldset > label {
-font-size: 3em!important;
-    color:white;
-}
-main>div:nth-of-type(3) >  form > fieldset:last-child  {
-font-size:3em;
-}
-main>div:nth-of-type(3) > form    {
-    /*border-top:var(--main-wit) solid 0.5em;*/
-    /*border-radius: 50%;*/
-}
-fieldset{
-    border:none;
+            "twee drie vier vijf"
+            "een h h zes"
+            "nul h h zeven";
+    /*nul*/
+    & fieldset:first-of-type {
+        grid-area: nul;
+        translate: 1em -1em;
+    }
+    /*duizend*/
+    & fieldset:nth-of-type(2) {
+        grid-area: een;
+        position: relative;
+        top: 4em;
+    }
+    /*tweeduizend*/
+    & fieldset:nth-of-type(3) {
+        grid-area: twee;
+        position: relative;
+        top: 7em;
+        left: 3em;
+    }
+    /*drieduizend*/
+    & fieldset:nth-of-type(4) {
+        grid-area: drie;
+        position: relative;
+        left: 3em;
+        top: 3em;
+    }
+    /*vierduizend*/
+    & fieldset:nth-of-type(5) {
+        grid-area: vier;
+        position: relative;
+        left: 3em;
+        top: 3em;
+    }
+    /*vijfduidzend*/
+    & fieldset:nth-of-type(6) {
+        grid-area: vijf;
+        position: relative;
+        left: -3em;
+        top: 7em;
+    }
+    /*zesduizend*/
+    & fieldset:nth-of-type(7) {
+        grid-area: zes;
+        position: relative;
+        top: 4em;
+    }
+    /*zevenduizend*/
+    & fieldset:nth-of-type(8) {
+        grid-area: zeven;
+        position: relative;
+        left: -1em;
+        top: -1em;
+    }
+    /*kmteller*/
+    & fieldset:nth-of-type(9) {
+        grid-area: h;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    & fieldset > label {
+        font-size: 3em;
+        color: white;
+    }
+    & fieldset:last-child {
+        font-size: 3em;
+    }
+    & fieldset {
+        border: none;
+    }
 }
 /*maps iframe custom propertys*/
-iframe {
+
+div:nth-of-type(5){
+    display: block;
     position:relative;
     top:9em;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    width: 500px;
+    height: 25.3em;
+    scroll-behavior: smooth;
+    & div {
+        scroll-snap-align: start;
+    }
+     & iframe {
+        border-radius:12px;
+        border:none;
+
+    }
+}
+
+
+/*input[type="radio"]:has([value="sport"]:checked)  div:nth-of-type(3) {*/
+/*    border: var(--main-rood);*/
+/*}*/
+/*input:has[value="comfort"]:checked div:nth-of-type(3) {*/
+/*    --main-speedometerborder: var(--main-blauw);*/
+/*}*/
+/*input:has([value="eco"]:checked)  div:nth-of-type(3) {*/
+/*    --main-speedometerborder: var(--main-groen);*/
+/*}*/
+/*dit is de snelheidsnaald*/
+span {
+    width: 0.5em;
+    height: 12em;
+    background-color: var(--main-speedometerborder);
+    position: absolute;
+    top:9em;
+    left:43em;
+    transform-origin: bottom center;
+    transform:  rotate(-120deg);
+    animation: speedup 2s infinite;
+
+}
+
+/*hier is de widget aan de rechterkant*/
+div:nth-of-type(5) > div:nth-of-type(3)  {
+    margin-left:2em;
+    margin-top: 5em;
+    color: var(--main-wit);
+    /*auto foto */
+    & > img {
+        width:450px;
+    }
+/*    de bandenspannings meter*/
+    & > div {
+        display:flex;
+        justify-content: space-between;
+    }
+    /*De bovenste 2 waarden*/
+    & p  {
+        font-size: 2em;
+        margin: 0;
+    }
+}
+
+
+
+/*animated banner intro*/
+div:nth-of-type(7) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*animation: fadeOut 2s forwards 5s;*/
+    & > div {
+        position: absolute;
+        color: var(--main-wit);
+        font-size: 5em;
+        text-align: center;
+        opacity: 1;
+        /*animation: fadeOut 1s forwards 5s;*/
+    }
+    & h1 {
+        overflow: hidden;
+        white-space: nowrap;
+        /*animation: typing 1s steps(20) 1s forwards;*/
+        &:before {
+            content:"\2707";
+        }
+    }
+}
+
+
+@keyframes speedup {
+    0% {
+        transform:  rotate(-120deg);
+    }
+    10% {
+        transform:  rotate(-90deg);
+    }
+    20% {
+        transform:  rotate(-60deg);
+    }
+    30% {
+        transform:  rotate(-25deg);
+    }
+    40% {
+        transform:  rotate(25deg);
+    }
+    50% {
+        transform:  rotate(55deg);
+    }
+    60% {
+        transform:  rotate(90deg);
+    }
+    70% {
+        transform:  rotate(120deg);
+        /*--main-speedometerborder:var(--main-blauw);*/
+    }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
 }
