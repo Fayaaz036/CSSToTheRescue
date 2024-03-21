@@ -19,7 +19,7 @@
     div {
         display:none;
     }
-    h1 {
+    h2 {
         display:flex;
         color:white;
         z-index: 999;
@@ -34,7 +34,7 @@
     div {
         display: flex;
     }
-    h1 {
+    h2 {
         display: none;
     }
 }
