@@ -15,31 +15,49 @@
         cursor: pointer; /* Maak de label klikbaar */
     }
 }
-
-main {
-    display:flex;
-    background-color: var(--main-bg-color);
-    font-family:var(--main-font);
-    width: 100%;
-
+/* Mobiel in landscape-modus (minimale breedte 480px) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    /* Voeg hier je stijlen toe voor mobiel in landscape-modus */
+    body {
+        transform: scale(50%);
+        display:flex;
+    }
 }
 
-/*De verschillende rijmodus hier declare ik de vaste stijl die elk element moet krijgen voor de modus.*/
+/* Tablet in landscape-modus (minimale breedte 768px) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Voeg hier je stijlen toe voor tablet in landscape-modus */
+    body {
+        transform: scale(80%);
+    }
+}
+
+/* Desktop (minimale breedte 1024px) */
+@media only screen and (min-width: 1024px) {
+    /* Voeg hier je stijlen toe voor desktop */
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+main {
+    display:flex;
+    font-family:var(--main-font);
+    justify-content: center;
+    align-content: center;
+}
 input[type="radio"] {
     /*Hier haal ik de bolletjes weg om alleen de text zichtbaar te maken.*/
     appearance: none;
 }
-
-
 div:nth-of-type(2) > form {
     position: relative;
-    top: 12em;
+    top: 10em;
     width:15em;
-    font-size: 1.5em;
+    font-size: 2em;
     left:4em;
     color: var(--main-wit);
 }
-
 input:after {
     width: 2em;
     height: 2em;
@@ -52,7 +70,7 @@ input:after {
     font-style: italic;
     color: var(--main-wit);
 }
-    /*focus state rijmodus*/
+    /*focus en hover state rijmodus*/
 input[value="sport"]:hover:after,
 input[value="sport"]:checked:after {
          display: block;
@@ -60,7 +78,6 @@ input[value="sport"]:checked:after {
          background: linear-gradient(180deg, rgb(205, 10, 43) 0%, rgb(0, 0, 0) 100%);
          content: "S";
      }
-
 input[value="comfort"]:hover:after,
 input[value="comfort"]:checked:after{
     display:block;
@@ -68,26 +85,18 @@ input[value="comfort"]:checked:after{
     background: linear-gradient(180deg, rgb(10, 146.5, 205) 0%, rgb(0, 0, 0) 100%);
     content: "C";
 }
-
 input[value="eco"]:checked:after,
 input[value="eco"]:hover:after{
     display:block;
     border-color: var(--main-groen);
     background: linear-gradient(180deg, rgb(14, 190, 10) 0%, rgb(0, 0, 0) 100%);
     content: "E";
-
 }
-
-
-
-
-
-main>div:nth-of-type(2) >form >label:hover, label:focus-visible{
+form >label:hover, label:focus-visible{
     /*color:red;*/
     text-decoration:underline white 0.2em;
 
 }
-
 div:nth-of-type(3) >  form {
     width:35em;
     height:35em;
@@ -194,28 +203,19 @@ div:nth-of-type(5){
 }
 
 
-/*input[type="radio"]:has([value="sport"]:checked)  div:nth-of-type(3) {*/
-/*    border: var(--main-rood);*/
-/*}*/
-/*input:has[value="comfort"]:checked div:nth-of-type(3) {*/
-/*    --main-speedometerborder: var(--main-blauw);*/
-/*}*/
-/*input:has([value="eco"]:checked)  div:nth-of-type(3) {*/
-/*    --main-speedometerborder: var(--main-groen);*/
-/*}*/
 /*dit is de snelheidsnaald*/
-span {
+#naald {
     width: 0.5em;
     height: 12em;
-    background-color: var(--main-speedometerborder);
-    position: absolute;
-    top:9em;
-    left:43em;
+    background-color: var(--main-rood);
+    position: relative;
+    top:-33em!important;
+    left:22em;
     transform-origin: bottom center;
     transform:  rotate(-120deg);
-    animation: speedup 2s infinite;
-
+    animation: speedup 1s ease-in-out 6s;
 }
+
 
 /*hier is de widget aan de rechterkant*/
 div:nth-of-type(5) > div:nth-of-type(3)  {
@@ -251,19 +251,19 @@ div:nth-of-type(7) {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*animation: fadeOut 2s forwards 5s;*/
+    animation: fadeOut 1s forwards 5s;
     & > div {
         position: absolute;
         color: var(--main-wit);
         font-size: 5em;
         text-align: center;
         opacity: 1;
-        /*animation: fadeOut 1s forwards 5s;*/
+        animation: fadeOut 1s forwards 5s;
     }
     & h1 {
         overflow: hidden;
         white-space: nowrap;
-        /*animation: typing 1s steps(20) 1s forwards;*/
+        animation: typing 1s steps(20) 1s forwards;
         &:before {
             content:"\2707";
         }
@@ -313,3 +313,14 @@ div:nth-of-type(7) {
         display: none;
     }
 }
+
+
+/*input[type="radio"]:has([value="sport"]:checked)  div:nth-of-type(3) {*/
+/*    border: var(--main-rood);*/
+/*}*/
+/*input:has[value="comfort"]:checked div:nth-of-type(3) {*/
+/*    --main-speedometerborder: var(--main-blauw);*/
+/*}*/
+/*input:has([value="eco"]:checked)  div:nth-of-type(3) {*/
+/*    --main-speedometerborder: var(--main-groen);*/
+/*}*/
