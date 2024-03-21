@@ -181,6 +181,8 @@ div:nth-of-type(5){
     width: 500px;
     height: 25.3em;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Maakt de scrollervaring soepeler op iOS-apparaten */
+
     & div {
         scroll-snap-align: start;
     }
