@@ -24,12 +24,12 @@
 <div>
   <!--  Dit zijn de rijmodus-->
   <form>
-    <input type="radio" id="sport" name="rijmodus" value="sport"checked>
-    <label for="sport">Sport</label><br>
-    <input type="radio" id="comfort" name="rijmodus" value="comfort" checked>
-    <label for="comfort">Comfort</label><br>
-    <input type="radio" id="eco" name="rijmodus" value="eco"checked>
-    <label for="eco">Eco</label>
+
+    <label><input type="radio" name="rijmodus" value="sport" checked> Sport</label>
+
+    <label> <input type="radio" name="rijmodus" value="comfort"> Comfort</label>
+
+    <label> <input type="radio" name="rijmodus" value="eco"> Eco</label>
   </form>
 </div>
 
@@ -70,8 +70,9 @@
     <fieldset>
       <label for="snelheid">100</label>
     </fieldset>
+    <div id="naald"></div>
+
   </form>
-  <div id="naald"></div>
 
 </div>
 
@@ -98,8 +99,8 @@
       </div>
       <img src="img/mercedes-top.png" alt="Wagens">
       <div>
-        <p>250 </p>
-        <p>280 [kPa] </p>
+        <p>250</p>
+        <p>280 [kPa]</p>
       </div>
     </div>
   </div>
@@ -119,8 +120,7 @@
         <h1> Mercedes-Benz.</h1>
       </div>
     </div>
-    <div>
-  </div>
+
 
 
 
@@ -138,6 +138,8 @@
 <!--  lightness:-->
 <!--  <input type="range" min="0" max="1" step=".1" value=".5" name="lightness" orient="horizontal">-->
 <!--</label>-->
+
+  <button type="button" value="gasgeven">Gas geven!</button>
 
 <script defer src="script.js"></script>
 </main>
