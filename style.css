@@ -62,24 +62,40 @@ body {
     background-color: var(--main-bg-color);
 }
 main {
-    display:flex;
+    display:block;
     font-family:var(--main-font);
     justify-content: center;
     align-content: center;
+
 }
+
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
 input[type="radio"] {
     /*Hier haal ik de bolletjes weg om alleen de text zichtbaar te maken.*/
     appearance: none;
 }
-div:nth-of-type(2) > form {
-    position: relative;
+#rijmodus{
+    display: block;
+    align-content: center;
+    margin-right: -10em;
+}
+
+#rijmodus > form > label {
+    display: block;
     top: 10em;
-    width:15em;
+    width: 15em;
     font-size: 2em;
-    left:4em;
+    left: 4em;
     color: var(--main-wit);
 }
-input:after {
+ input:after {
     width: 2em;
     height: 2em;
     border-radius: 0.5em;
@@ -118,7 +134,7 @@ form >label:hover, label:focus-visible{
     text-decoration:underline white 0.2em;
 
 }
-div:nth-of-type(3) >  form {
+div:first-of-type > div:nth-of-type(3) >  form {
     width:35em;
     height:35em;
     background:var(--main-speedometer);
@@ -203,7 +219,7 @@ div:nth-of-type(3) >  form {
 }
 /*maps iframe custom propertys*/
 
-div:nth-of-type(5){
+div:first-of-type > div:nth-of-type(5){
     display: block;
     position:relative;
     top:9em;
@@ -251,13 +267,15 @@ div:nth-of-type(5){
 
 
 /*hier is de widget aan de rechterkant*/
-div:nth-of-type(5) > div:nth-of-type(3)  {
+div:first-of-type > div:nth-of-type(5) > div:nth-of-type(3)  {
     margin-left:2em;
+    height:100%;
     margin-top: 5em;
     color: var(--main-wit);
     /*auto foto */
     & > img {
-        width:450px;
+        width:100%;
+        height:250px;
     }
 /*    de bandenspannings meter*/
     & > div {
@@ -271,39 +289,113 @@ div:nth-of-type(5) > div:nth-of-type(3)  {
     }
 }
 
+#controls  {
+    display:flex;
+    justify-content: center;
+    gap: 3em;
+
+    && button {
+            width: 100px;
+            height: 50px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        button:active {
+            transform: translateY(10px); /* Verplaats de knop naar beneden wanneer ingedrukt */
+        }
+
+
+
+    }
+
+
+#controls input[type="checkbox"] {
+    display: none; /* Verberg de standaard checkbox */
+}
+
+
+#controls label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #333; /* Stijl verandering wanneer aangevinkt */
+    border-radius: 5px;
+    color:white;
+}
+
+
+#controls label:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none; /* Verberg het vinkje standaard */
+}
+
+
+#controls label:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: none; /* Verberg het vinkje standaard */
+}
+
+
+
+
+
 
 
 /*animated banner intro*/
-div:nth-of-type(7) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--main-bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeOut 1s forwards 5s;
-    z-index: 999;
+/*div:nth-of-type(7) {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: var(--main-bg-color);*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    animation: fadeOut 1s forwards 5s;*/
+/*    z-index: 999;*/
 
-    & > div {
-        position: absolute;
-        color: var(--main-wit);
-        font-size: 5em;
-        text-align: center;
-        opacity: 1;
-        animation: fadeOut 1s forwards 5s;
-    }
-    & h1 {
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typing 1s steps(20) 1s forwards;
-        &:before {
-            content:"\2707";
-        }
-    }
-}
+/*    & > div {*/
+/*        position: absolute;*/
+/*        color: var(--main-wit);*/
+/*        font-size: 5em;*/
+/*        text-align: center;*/
+/*        opacity: 1;*/
+/*        animation: fadeOut 1s forwards 5s;*/
+/*    }*/
+/*    & h1 {*/
+/*        overflow: hidden;*/
+/*        white-space: nowrap;*/
+/*        animation: typing 1s steps(20) 1s forwards;*/
+/*        &:before {*/
+/*            content:"\2707";*/
+/*        }*/
+/*    }*/
+/*}*/
 
 
 /*@keyframes speedup {*/
@@ -367,6 +459,77 @@ html:has( [value="eco"]:checked ) main div:nth-of-type(3) {
     --main-speedometerborder: var(--main-groen);
 }
 
-html:has(button:active) #naald {
+html:has(button[value="gasgeven"]:active) #naald {
     rotate: 112deg;
 }
+input[type="checkbox"][value="gordel"] {
+    /*display: none; !* Verberg de standaard checkbox *!*/
+}
+
+input[type="checkbox"][value="gordel"] + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+input[type="checkbox"][value="gordel"] + label:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+input[type="checkbox"][value="gordel"]:checked + label:before {
+    background-color: #333; /* Stijl verandering wanneer aangevinkt */
+}
+
+input[type="checkbox"][value="gordel"] + label:after {
+    content: "✔";
+    font-size: 16px;
+    color: #333;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    display: none; /* Verberg het vinkje standaard */
+}
+
+input[type="checkbox"][value="gordel"]:checked + label:after {
+    display: block; /* Toon het vinkje wanneer aangevinkt */
+}
+
+
+html:has(input[value="gordel"]:checked) #gordel {
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+}
+
+html:has(input[value="gordel"]) #gordel {
+    transition: 0.3s ease-in-out;
+    opacity: 1;
+}
+
+html:has(input[value="handrem"]:checked) #handrem {
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+}
+
+html:has(input[value="handrem"]) #handrem {
+    transition: 0.3s ease-in-out;
+    opacity: 1;
+}
+
+html:has(input[value="motorlampje"]:checked) #motorlampje {
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+}
+
+html:has(input[value="motorlampje"]) #motorlampje {
+    transition: 0.3s ease-in-out;
+    opacity: 1;
+}
+
