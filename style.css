@@ -17,18 +17,19 @@
     }
 }
 @media screen and (orientation:portrait) {
-    div {
-        display:none;
-    }
-    h2 {
+    body > h2 {
         display:flex;
-        color: var(--main-textcolor);
+        color: var(--main-wit);
         z-index: 999;
         text-align: center;
         justify-content: center;
-        margin-top: 10em;
-        margin-left:3.5em;
+        margin-top:12em;    }
+
+    body > main, div  {
+        display:none;
+        opacity: 0;
     }
+
 }
 
 @media screen and (orientation:landscape) {
@@ -89,11 +90,11 @@ main > div:first-of-type {
 
 }
 html:has(input[value="leftblinker"]:checked) #leftblinker{
-    animation: gloedAnimatie 1s ease-in-out infinite;
+    animation: knipperAnimatie 1s ease-in-out infinite;
 
 }
 html:has(input[value="rightblinker"]:checked) #rightblinker{
-    animation: gloedAnimatie 1s ease-in-out infinite;
+    animation: knipperAnimatie 1s ease-in-out infinite;
 }
 
 
@@ -414,13 +415,11 @@ html:has(input[value="motorlampje"]:checked) #motorlampje {
     transition: 0.3s ease-in-out;
     opacity: 1;
     animation: gloedAnimatie 1s infinite;
-
 }
 
 html:has(input[value="motorlampje"]) #motorlampje {
     transition: 0.3s ease-in-out;
     opacity: 0;
-
 }
 .gloed {
     position: fixed;
@@ -431,13 +430,16 @@ html:has(input[value="motorlampje"]) #motorlampje {
     background: radial-gradient(circle, rgba(255,0,0,0) 0%, rgba(255,0,0,0.8) 70%);
     animation: gloedAnimatie 1s infinite;
     display:none;
-
 }
-html:has(input[value="motorlampje"]:checked)  div:first-of-type {
+
+html:has(input[value="motorlampje"]:checked)  .gloed {
     display: block;
     z-index: 1;
-}
 
+}
+html:has(input[value="motorlampje"]:checked) #leftblinker{
+    animation: knipperAnimatie infinite;
+}
 
 
     body > div:nth-of-type(2){
@@ -456,6 +458,7 @@ html:has(input[value="motorlampje"]:checked)  div:first-of-type {
         & > div {
             position: absolute;
             color: var(--main-wit);
+            background-color: var(--main-bg-color);
             font-size: 5em;
             text-align: center;
             opacity: 1;
@@ -492,6 +495,19 @@ html:has(input[value="motorlampje"]:checked)  div:first-of-type {
 
 
 @keyframes gloedAnimatie {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes knipperAnimatie {
     0% {
         opacity: 0;
     }
