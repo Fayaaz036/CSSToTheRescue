@@ -7,6 +7,7 @@
     --main-speedometer:#101417;
     --main-speedometerborder:#354D63;
     --main-bg-color: #0B1522;
+    --main-textcolor: #333;
     --main-font: "Exo", sans-serif;
     ::-webkit-scrollbar {
         display:none;
@@ -21,7 +22,7 @@
     }
     h2 {
         display:flex;
-        color:white;
+        color: var(--main-textcolor);
         z-index: 999;
         text-align: center;
         justify-content: center;
@@ -60,17 +61,43 @@
 
 body {
     background-color: var(--main-bg-color);
+    font-family:var(--main-font);
+
 }
 main {
     display:block;
-    font-family:var(--main-font);
     justify-content: center;
     align-content: center;
 
 }
 
+/*Knipperlichten met animatie*/
 
-#content {
+main > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width:10em;
+    height: 5em;
+    gap: 70em;
+    left: 11%;
+
+    && img {
+        width:10em;
+        opacity: 0;
+    }
+
+}
+html:has(input[value="leftblinker"]:checked) #leftblinker{
+    animation: gloedAnimatie 1s ease-in-out infinite;
+
+}
+html:has(input[value="rightblinker"]:checked) #rightblinker{
+    animation: gloedAnimatie 1s ease-in-out infinite;
+}
+
+
+main > div:nth-of-type(2) {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -81,20 +108,21 @@ input[type="radio"] {
     /*Hier haal ik de bolletjes weg om alleen de text zichtbaar te maken.*/
     appearance: none;
 }
-#rijmodus{
+main > div:nth-of-type(2) > div:first-of-type{
     display: block;
     align-content: center;
     margin-right: -10em;
+
+    && form > label {
+        display: block;
+        top: 10em;
+        width: 15em;
+        font-size: 2em;
+        left: 4em;
+        color: var(--main-wit);
+    }
 }
 
-#rijmodus > form > label {
-    display: block;
-    top: 10em;
-    width: 15em;
-    font-size: 2em;
-    left: 4em;
-    color: var(--main-wit);
-}
  input:after {
     width: 2em;
     height: 2em;
@@ -107,6 +135,8 @@ input[type="radio"] {
     font-style: italic;
     color: var(--main-wit);
 }
+
+
     /*focus en hover state rijmodus*/
 input[value="sport"]:hover:after,
 input[value="sport"]:checked:after {
@@ -132,9 +162,10 @@ input[value="eco"]:hover:after{
 form >label:hover, label:focus-visible{
     /*color:red;*/
     text-decoration:underline white 0.2em;
-
 }
-div:first-of-type > div:nth-of-type(3) >  form {
+
+/*kmteller/toerenteller */
+main > div:nth-of-type(2) > div:nth-of-type(2) >  form {
     width:35em;
     height:35em;
     background:var(--main-speedometer);
@@ -155,7 +186,7 @@ div:first-of-type > div:nth-of-type(3) >  form {
     & fieldset:nth-of-type(2) {
         grid-area: een;
         position: relative;
-        top: 4em;
+        top: 6em;
     }
     /*tweeduizend*/
     & fieldset:nth-of-type(3) {
@@ -168,15 +199,15 @@ div:first-of-type > div:nth-of-type(3) >  form {
     & fieldset:nth-of-type(4) {
         grid-area: drie;
         position: relative;
-        left: 3em;
-        top: 3em;
+        left: 5em;
+        top: 2em;
     }
     /*vierduizend*/
     & fieldset:nth-of-type(5) {
         grid-area: vier;
         position: relative;
-        left: 3em;
-        top: 3em;
+        left: 5em;
+        top: 2em;
     }
     /*vijfduidzend*/
     & fieldset:nth-of-type(6) {
@@ -189,7 +220,7 @@ div:first-of-type > div:nth-of-type(3) >  form {
     & fieldset:nth-of-type(7) {
         grid-area: zes;
         position: relative;
-        top: 4em;
+        top: 6em;
     }
     /*zevenduizend*/
     & fieldset:nth-of-type(8) {
@@ -201,9 +232,13 @@ div:first-of-type > div:nth-of-type(3) >  form {
     /*kmteller*/
     & fieldset:nth-of-type(9) {
         grid-area: h;
-        display: flex;
+        height: 100%;
+        display: block;
         justify-content: center;
         align-items: center;
+        position: relative;
+        top: 2em;
+
     }
     & fieldset > label {
         font-size: 3em;
@@ -216,10 +251,18 @@ div:first-of-type > div:nth-of-type(3) >  form {
     & fieldset {
         border: none;
     }
+    & label[for=snelheid]{
+         display:flex;
+         justify-content: center;
+     }
+
+    & fieldset > img {
+        height: 2em;
+    }
 }
 /*maps iframe custom propertys*/
 
-div:first-of-type > div:nth-of-type(5){
+main > div:nth-of-type(2) > div:nth-of-type(3){
     display: block;
     position:relative;
     top:9em;
@@ -259,7 +302,7 @@ div:first-of-type > div:nth-of-type(5){
     align-self: start;
 
     translate:0em -4em;
-    rotate:-112deg;
+    rotate:-125deg;
 
     clip-path:polygon(30% 0, 70% 0, 100% 100%, 0 100%, 20% 0);
     border-radius: 0 0 1em 1em;
@@ -267,7 +310,7 @@ div:first-of-type > div:nth-of-type(5){
 
 
 /*hier is de widget aan de rechterkant*/
-div:first-of-type > div:nth-of-type(5) > div:nth-of-type(3)  {
+main > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) {
     margin-left:2em;
     height:100%;
     margin-top: 5em;
@@ -289,15 +332,18 @@ div:first-of-type > div:nth-of-type(5) > div:nth-of-type(3)  {
     }
 }
 
-#controls  {
+main > div:nth-of-type(3) {
     display:flex;
     justify-content: center;
     gap: 3em;
+    z-index: 2;
+    position: relative;
+
 
     && button {
             width: 100px;
             height: 50px;
-            background-color: #333;
+            background-color: var(--main-textcolor);
             color: white;
             border: none;
             border-radius: 10px;
@@ -311,205 +357,46 @@ div:first-of-type > div:nth-of-type(5) > div:nth-of-type(3)  {
             transform: translateY(10px); /* Verplaats de knop naar beneden wanneer ingedrukt */
         }
 
-
+    & input[type="checkbox"] {
+        display: none; /* Verberg de standaard checkbox */
+    }
+    & label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 10px;
+        cursor: pointer;
+        background-color: var(--main-textcolor); /* Stijl verandering wanneer aangevinkt */
+        border-radius: 5px;
+        color:white;
+    }
 
     }
 
 
-#controls input[type="checkbox"] {
-    display: none; /* Verberg de standaard checkbox */
-}
 
-
-#controls label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 10px;
-    cursor: pointer;
-    background-color: #333; /* Stijl verandering wanneer aangevinkt */
-    border-radius: 5px;
-    color:white;
-}
-
-
-#controls label:before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: none; /* Verberg het vinkje standaard */
-}
-
-
-#controls label:after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    display: none; /* Verberg het vinkje standaard */
-}
-
-
-
-
-
-
-
-/*animated banner intro*/
-/*div:nth-of-type(7) {*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background-color: var(--main-bg-color);*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    animation: fadeOut 1s forwards 5s;*/
-/*    z-index: 999;*/
-
-/*    & > div {*/
-/*        position: absolute;*/
-/*        color: var(--main-wit);*/
-/*        font-size: 5em;*/
-/*        text-align: center;*/
-/*        opacity: 1;*/
-/*        animation: fadeOut 1s forwards 5s;*/
-/*    }*/
-/*    & h1 {*/
-/*        overflow: hidden;*/
-/*        white-space: nowrap;*/
-/*        animation: typing 1s steps(20) 1s forwards;*/
-/*        &:before {*/
-/*            content:"\2707";*/
-/*        }*/
-/*    }*/
-/*}*/
-
-
-/*@keyframes speedup {*/
-/*    0% {*/
-/*    rotate: -112deg;*/
-/*    }*/
-/*    100% {*/
-/*     rotate: 112deg;*/
-/*        !*--main-speedometerborder:var(--main-blauw);*!*/
-/*    }*/
-/*}*/
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1
-    }
-    to {
-        opacity: 0;
-        display: none;
-    }
-}
-
-
-input[type="radio"]:has([value="sport"]:checked)  div:nth-of-type(3) {
-    border: var(--main-rood);
-}
-input:has[value="comfort"]:checked div:nth-of-type(3) {
-    --main-speedometerborder: var(--main-blauw);
-}
-input:has([value="eco"]:checked)  div:nth-of-type(3) {
-    --main-speedometerborder: var(--main-groen);
-}
-
-
-main > div:nth-of-type(2) form {
-    display: grid;
-}
-
-main > div:nth-of-type(2) form label {
-    display: flex;
-    align-items: center;
-}
-
-main > div:nth-of-type(2) form label input {
-    position: absolute;
-    right:100%;
-}
-
-html:has( [value="sport"]:checked ) main div:nth-of-type(3) {
+html:has( [value="sport"]:checked ) main div:nth-of-type(2) {
     --main-speedometerborder: var(--main-rood);
 }
-html:has( [value="comfort"]:checked ) main div:nth-of-type(3) {
+html:has( [value="comfort"]:checked ) main div:nth-of-type(2) {
     --main-speedometerborder: var(--main-blauw);
 }
-html:has( [value="eco"]:checked ) main div:nth-of-type(3) {
+html:has( [value="eco"]:checked ) main div:nth-of-type(2) {
     --main-speedometerborder: var(--main-groen);
 }
 
 html:has(button[value="gasgeven"]:active) #naald {
     rotate: 112deg;
-}
-input[type="checkbox"][value="gordel"] {
-    /*display: none; !* Verberg de standaard checkbox *!*/
-}
 
-input[type="checkbox"][value="gordel"] + label {
-    display: inline-block;
-    position: relative;
-    padding-left: 30px;
-    cursor: pointer;
 }
-
-input[type="checkbox"][value="gordel"] + label:before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-input[type="checkbox"][value="gordel"]:checked + label:before {
-    background-color: #333; /* Stijl verandering wanneer aangevinkt */
-}
-
-input[type="checkbox"][value="gordel"] + label:after {
-    content: "✔";
-    font-size: 16px;
-    color: #333;
-    position: absolute;
-    top: 2px;
-    left: 4px;
-    display: none; /* Verberg het vinkje standaard */
-}
-
-input[type="checkbox"][value="gordel"]:checked + label:after {
-    display: block; /* Toon het vinkje wanneer aangevinkt */
-}
-
-
 html:has(input[value="gordel"]:checked) #gordel {
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     opacity: 0;
 }
 
 html:has(input[value="gordel"]) #gordel {
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     opacity: 1;
 }
 
@@ -525,11 +412,93 @@ html:has(input[value="handrem"]) #handrem {
 
 html:has(input[value="motorlampje"]:checked) #motorlampje {
     transition: 0.3s ease-in-out;
-    opacity: 0;
+    opacity: 1;
+    animation: gloedAnimatie 1s infinite;
+
 }
 
 html:has(input[value="motorlampje"]) #motorlampje {
     transition: 0.3s ease-in-out;
-    opacity: 1;
+    opacity: 0;
+
+}
+.gloed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255,0,0,0) 0%, rgba(255,0,0,0.8) 70%);
+    animation: gloedAnimatie 1s infinite;
+    display:none;
+
+}
+html:has(input[value="motorlampje"]:checked)  div:first-of-type {
+    display: block;
+    z-index: 1;
 }
 
+
+
+    body > div:nth-of-type(2){
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--main-bg-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeOut 1s forwards 5s;
+        z-index: 999;
+
+        & > div {
+            position: absolute;
+            color: var(--main-wit);
+            font-size: 5em;
+            text-align: center;
+            opacity: 1;
+            animation: fadeOut 1s forwards 5s;
+        }
+        & h1 {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 1s steps(20) 1s forwards;
+            &:before {
+                content:"\2707";
+            }
+        }
+    }
+
+
+
+
+    @keyframes typing {
+
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1
+        }
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+
+@keyframes gloedAnimatie {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -10,126 +10,106 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<!--  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">-->
 </head>
 
 <body>
+<div class="gloed"></div>
+<div><div><h1> Mercedes-Benz.</h1></div></div>
+<h2>Draai je telefoon om om de website te gebruiken.</h2>
+
 <main>
-  <h2>Draai je telefoon om om de website te gebruiken.</h2>
+  <div>
+    <!--    Knipperlichten -->
+    <img src="img/leftblinker.png" id="leftblinker" alt="LeftBlinker">
+    <img src="img/rightblinker.png" id="rightblinker" alt="rightBlinker">
+  </div>
 
-
-
-  <div id="content">
 
   <div>
-  <!--  Hier komt de tijd parkeer rem en tijd-->
-<!--    tank met waardes -->
-      <img src="img/gordel.png" alt="gordel" id="gordel">
-    <img src="img/handrem.png" alt="handrem" id="handrem">
-    <img src="img/motorlampje.png" alt="gordel" id="motorlampje">
+    <div>
+      <!--  Dit zijn de rijmodus-->
+        <form>
+          <label><input type="radio" name="rijmodus" value="sport" checked> Sport</label>
+          <label> <input type="radio" name="rijmodus" value="comfort"> Comfort</label>
+          <label> <input type="radio" name="rijmodus" value="eco"> Eco</label>
+        </form>
+    </div>
 
+  <div>
+    <!--  Dit is de toerenteller-->
+    <form>
+      <fieldset>
+        <input type="radio" id="nul" name="toeren" value="nul">
+        <label for="nul">0</label>
+      </fieldset>
+      <fieldset>
+        <input type="radio" id="duizend" name="toeren" value="duizend">
+        <label for="duizend">1</label>
+      </fieldset>
+      <fieldset>
+        <input type="radio" id="tweeduizend" name="toeren" value="tweeduizend">
+         <label for="tweeduizend">2</label>
+      </fieldset>
+      <fieldset>
+        <input type="radio" id="drieduizend" name="toeren" value="drieduizend">
+         <label for="drieduizend">3</label>
+      </fieldset>
+      <fieldset>
+         <input type="radio" id="vierduizend" name="toeren" value="vierduizend">
+         <label for="vierduizend">4</label></fieldset>
+      <fieldset>
+        <input type="radio" id="vijfduizend" name="toeren" value="vijfduizend">
+        <label for="vijfduizend">5</label>
+      </fieldset>
+      <fieldset>
+        <input type="radio" id="zesduizend" name="toeren" value="zesduizend">
+        <label for="zesduizend">6</label>
+      </fieldset>
+      <fieldset>
+         <input type="radio" id="zevenduizend" name="toeren" value="zevenduizend">
+         <label for="zevenduizend">7</label>
+      </fieldset>
+      <fieldset>
+        <img src="img/handrem.png" alt="handrem" id="handrem">
+        <img src="img/motorlampje.png" alt="gordel" id="motorlampje">
+        <img src="img/gordel.png" alt="gordel" id="gordel">
+        <label for="snelheid">100</label><br>
+      </fieldset>
+      <div id="naald"></div>
+
+    </form>
 
   </div>
 
-<div id="rijmodus">
-  <!--  Dit zijn de rijmodus-->
-  <form>
-
-    <label><input type="radio" name="rijmodus" value="sport" checked> Sport</label>
-
-    <label> <input type="radio" name="rijmodus" value="comfort"> Comfort</label>
-
-    <label> <input type="radio" name="rijmodus" value="eco"> Eco</label>
-  </form>
-</div>
-
-<div>
-  <!--  Dit is de toerenteller-->
-  <form>
-    <fieldset>
-      <input type="radio" id="nul" name="toeren" value="nul">
-      <label for="nul">0</label>
-    </fieldset>
-    <fieldset>
-      <input type="radio" id="duizend" name="toeren" value="duizend">
-      <label for="duizend">1</label>
-    </fieldset>
-    <fieldset>
-      <input type="radio" id="tweeduizend" name="toeren" value="tweeduizend">
-       <label for="tweeduizend">2</label>
-    </fieldset>
-    <fieldset>
-      <input type="radio" id="drieduizend" name="toeren" value="drieduizend">
-       <label for="drieduizend">3</label>
-    </fieldset>
-    <fieldset>
-       <input type="radio" id="vierduizend" name="toeren" value="vierduizend">
-       <label for="vierduizend">4</label></fieldset>
-    <fieldset>
-      <input type="radio" id="vijfduizend" name="toeren" value="vijfduizend">
-      <label for="vijfduizend">5</label>
-    </fieldset>
-    <fieldset>
-      <input type="radio" id="zesduizend" name="toeren" value="zesduizend">
-      <label for="zesduizend">6</label>
-    </fieldset>
-    <fieldset>
-       <input type="radio" id="zevenduizend" name="toeren" value="zevenduizend">
-       <label for="zevenduizend">7</label>
-    </fieldset>
-    <fieldset>
-      <label for="snelheid">100</label>
-    </fieldset>
-    <div id="naald"></div>
-
-  </form>
-
-</div>
-
-<div>
-  <!--    hier komt de maps en versnellingsbak-->
-
-</div>
-
-  <div>
     <div>
-      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ikDymsNK503wBw-qQyOdlKG23ScnWSY&ehbc=2E312F&noprof=1"
-              width="500" height="400" style="style.css"></iframe>
-    </div>
-    <div>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX19xRtMyA5LM?utm_source=generator"
-                    width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write;
-    encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-    <div>
-
       <div>
-        <p>250</p>
-        <p>280[kPa]</p>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ikDymsNK503wBw-qQyOdlKG23ScnWSY&ehbc=2E312F&noprof=1"
+                width="500" height="400" style="style.css"></iframe>
       </div>
-      <img src="img/mercedes-top.png" alt="Wagens">
       <div>
-        <p>250</p>
-        <p>280 [kPa]</p>
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX19xRtMyA5LM?utm_source=generator"
+                      width="100%" height="380" allowfullscreen="" allow="autoplay; clipboard-write;
+      encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div>
+        <div>
+          <p>250</p>
+          <p>280[kPa]</p>
+        </div>
+        <img src="img/mercedes-top.png" alt="Wagens">
+        <div>
+          <p>250</p>
+          <p>280 [kPa]</p>
+        </div>
       </div>
     </div>
   </div>
 
 
   <div>
-  <!--  hier komt een tankindicatie, gordel lampje en lichten.-->
-
-  </div>
-
-
-
-  </div>
-
-
-  <div id="controls">
 <!--controls-->
-    <div class="gaspedaal"></div>
 
+    <label> <input type="checkbox" value="leftblinker"> Knipperlicht Links</label>
 
     <button type="button" value="gasgeven">Gas geven!</button>
 
@@ -137,16 +117,8 @@
     <label> <input type="checkbox" value="handrem"> Handrem</label>
     <label> <input type="checkbox" value="motorlampje"> Paniek!</label>
 
-
-
+    <label> <input type="checkbox" value="rightblinker"> Knipperlicht Rechts</label>
   </div>
-
-
-
-
-
-
-
 
 
 
@@ -158,25 +130,4 @@
 </html>
 
 
-<!-- intro -->
-<!--    <div>-->
-<!--      <div>-->
-<!--        <h1> Mercedes-Benz.</h1>-->
-<!--      </div>-->
-<!--    </div>-->
 
-
-<!--<label>-->
-<!--  hue:-->
-<!--  <input type="range" min="0" max="1" step=".1" value=".9" name="hue" orient="horizontal">-->
-<!--</label>-->
-
-<!--<label>-->
-<!--  saturation:-->
-<!--  <input type="range" min="0" max="1" step=".1" value="1" name="saturation" orient="horizontal">-->
-<!--</label>-->
-
-<!--<label>-->
-<!--  lightness:-->
-<!--  <input type="range" min="0" max="1" step=".1" value=".5" name="lightness" orient="horizontal">-->
-<!--</label>-->
